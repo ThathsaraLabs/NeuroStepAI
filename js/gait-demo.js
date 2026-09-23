@@ -85,13 +85,29 @@ function initHeatmapCanvas() {
     }
 
     if (statusText) {
+      const lang = (window.i18n && window.i18n.currentLang) ? window.i18n.currentLang : 'en';
       const displayNames = {
-        forefoot: 'FOREFOOT LOAD: 78 kPa',
-        midfoot: 'MIDFOOT BALANCE: 50% L / 50% R',
-        heel: 'HEEL STRIKE: 92 kPa',
-        toes: 'PROPULSION: 64 kPa'
+        en: {
+          forefoot: 'FOREFOOT LOAD: 78 kPa',
+          midfoot: 'MIDFOOT BALANCE: 50% L / 50% R',
+          heel: 'HEEL STRIKE: 92 kPa',
+          toes: 'PROPULSION: 64 kPa'
+        },
+        ko: {
+          forefoot: '전족부 하중: 78 kPa',
+          midfoot: '중족부 균형: 50% 좌 / 50% 우',
+          heel: '후족부 접지: 92 kPa',
+          toes: '추진력: 64 kPa'
+        },
+        si: {
+          forefoot: 'පෙර පාදයේ භාරය: 78 kPa',
+          midfoot: 'මැද පාදයේ සමබරතාව: 50% වම් / 50% දකුණු',
+          heel: 'පතුල් පහර (Heel Strike): 92 kPa',
+          toes: 'ඉදිරි තල්ලුව (Propulsion): 64 kPa'
+        }
       };
-      statusText.textContent = displayNames[activeZone] || activeZone.toUpperCase();
+      const langMap = displayNames[lang] || displayNames.en;
+      statusText.textContent = langMap[activeZone] || activeZone.toUpperCase();
     }
 
     // 3. Render animated pressure glowing hotspots overlaying 2.jpeg

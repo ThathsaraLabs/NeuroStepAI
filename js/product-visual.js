@@ -43,19 +43,32 @@ function initExplodedViewToggle() {
 
   let isExploded = false;
 
+  const btnLabels = {
+    en: { explode: 'Explode Architecture View', collapse: 'Collapse Layer View' },
+    ko: { explode: '아키텍처 분해도 보기', collapse: '레이어 접기' },
+    si: { explode: 'ව්‍යුහයේ ස්තර වෙන් කර බලන්න', collapse: 'ස්තර එකතු කරන්න' }
+  };
+
+  function updateBtnText() {
+    const lang = (window.i18n && window.i18n.currentLang) ? window.i18n.currentLang : 'en';
+    const labels = btnLabels[lang] || btnLabels.en;
+    toggleBtn.textContent = isExploded ? labels.collapse : labels.explode;
+  }
+
+  window.addEventListener('languageChanged', updateBtnText);
+
   toggleBtn.addEventListener('click', () => {
     isExploded = !isExploded;
     if (isExploded) {
       container.classList.add('exploded-active');
-      toggleBtn.textContent = 'Collapse Layer View';
       toggleBtn.classList.add('bg-teal-600', 'text-white');
       toggleBtn.classList.remove('bg-white', 'text-slate-800');
     } else {
       container.classList.remove('exploded-active');
-      toggleBtn.textContent = 'Explode Architecture View';
       toggleBtn.classList.remove('bg-teal-600', 'text-white');
       toggleBtn.classList.add('bg-white', 'text-slate-800');
     }
+    updateBtnText();
   });
 }
 
@@ -100,9 +113,39 @@ function initSizeSelector() {
 
   if (!sizeBtns.length || !previewInsole) return;
 
+  let currentSize = 'M';
+
+  const sizeTexts = {
+    en: {
+      S: 'Small Group (Pilot Development)',
+      M: 'Medium Group (Pilot Development)',
+      L: 'Large Group (Pilot Development)'
+    },
+    ko: {
+      S: '스몰 그룹 (파일럿 개발 단계)',
+      M: '미디엄 그룹 (파일럿 개발 단계)',
+      L: '라지 그룹 (파일럿 개발 단계)'
+    },
+    si: {
+      S: 'කුඩා ප්‍රමාණය (Small Group - පරීක්ෂණ අදියර)',
+      M: 'මධ්‍යම ප්‍රමාණය (Medium Group - පරීක්ෂණ අදියර)',
+      L: 'විශාල ප්‍රමාණය (Large Group - පරීක්ෂණ අදියර)'
+    }
+  };
+
+  function updateLabel() {
+    if (!sizeLabel) return;
+    const lang = (window.i18n && window.i18n.currentLang) ? window.i18n.currentLang : 'en';
+    const texts = sizeTexts[lang] || sizeTexts.en;
+    sizeLabel.textContent = texts[currentSize] || texts.M;
+  }
+
+  window.addEventListener('languageChanged', updateLabel);
+
   sizeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const size = btn.getAttribute('data-size');
+      if (size) currentSize = size;
 
       // Update Active Styles
       sizeBtns.forEach(b => {
@@ -115,14 +158,12 @@ function initSizeSelector() {
       // Scale insole graphic
       if (size === 'S') {
         previewInsole.style.transform = 'scale(0.88)';
-        if (sizeLabel) sizeLabel.textContent = 'Small Group (Pilot Development)';
       } else if (size === 'M') {
         previewInsole.style.transform = 'scale(1)';
-        if (sizeLabel) sizeLabel.textContent = 'Medium Group (Pilot Development)';
       } else if (size === 'L') {
         previewInsole.style.transform = 'scale(1.12)';
-        if (sizeLabel) sizeLabel.textContent = 'Large Group (Pilot Development)';
       }
+      updateLabel();
     });
   });
 }
