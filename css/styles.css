@@ -1,0 +1,174 @@
+/* NeuroStep AI - Master Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --color-navy: #0B1F33;
+  --color-blue: #2563EB;
+  --color-teal: #0F9D8D;
+  --color-cyan: #22B8CF;
+  --color-green: #16A34A;
+  --color-soft-sky: #EAF4FF;
+  --color-soft-teal: #E9FAF7;
+  --color-bg: #F8FAFC;
+  --color-border: #DCE6F1;
+  --color-text-main: #102A43;
+  --color-text-muted: #5B6B7C;
+  
+  --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-navy);
+  letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Glassmorphism Header */
+.glass-header {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+}
+
+.glass-header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 30px -10px rgba(11, 31, 51, 0.08);
+}
+
+/* Custom Cursor context tag (Desktop only) */
+#custom-cursor-label {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  background: var(--color-navy);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(11, 31, 51, 0.2);
+  transform: translate(-50%, -130%) scale(0);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease;
+  opacity: 0;
+  white-space: nowrap;
+}
+
+#custom-cursor-label.active {
+  transform: translate(-50%, -130%) scale(1);
+  opacity: 1;
+}
+
+/* Top Progress Bar */
+#scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-blue), var(--color-teal), var(--color-cyan));
+  z-index: 10000;
+  width: 0%;
+  transition: width 0.1s ease-out;
+}
+
+/* Section Editorial Numbering */
+.editorial-number {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-teal);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Responsive Container */
+.site-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Pulse Node Indicator */
+.sensor-node {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-teal);
+  border: 2px solid #FFFFFF;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 rgba(15, 157, 141, 0.6);
+  animation: pulse-ring 2s infinite cubic-bezier(0.66, 0, 0, 1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.sensor-node:hover {
+  transform: scale(1.4);
+  background: var(--color-blue);
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(15, 157, 141, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(15, 157, 141, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(15, 157, 141, 0);
+  }
+}
+
+/* Reduced motion accessible query */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

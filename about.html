@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us & Core Leadership Team | NeuroStep AI</title>
+  <meta name="description" content="Meet the leadership, researchers, engineers, and clinical advisors behind NeuroStep AI smart insole mobility platform.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0B1F33',
+            blue: { 600: '#2563EB', 700: '#1D4ED8' },
+            teal: { 500: '#0F9D8D', 600: '#0D8A7C' },
+            cyan: { 400: '#22B8CF' },
+            sky: { 50: '#EAF4FF' }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen relative">
+
+  <div id="scroll-progress-bar"></div>
+
+  <!-- Header Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-header">
+    <div class="site-container h-20 flex items-center justify-between">
+      
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="assets/images/logo.png" alt="NeuroStep AI Official Logo" class="w-10 h-10 rounded-full shadow-md group-hover:scale-105 transition-transform object-cover">
+        <div class="flex flex-col">
+          <span class="font-bold text-xl tracking-tight text-slate-900 leading-tight">NeuroStep <span class="text-blue-600">AI</span></span>
+          <span class="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Gait Intelligence</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-700">
+        <a href="index.html" class="hover:text-blue-600 transition-colors pb-1" data-i18n="nav.home">Home</a>
+        <a href="product.html" class="hover:text-blue-600 transition-colors pb-1" data-i18n="nav.product">Product</a>
+        <a href="solutions.html" class="hover:text-blue-600 transition-colors pb-1" data-i18n="nav.solutions">Solutions</a>
+        <a href="research.html" class="hover:text-blue-600 transition-colors pb-1" data-i18n="nav.research">Research</a>
+        <a href="about.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1" data-i18n="nav.about">About</a>
+        <a href="contact.html" class="hover:text-blue-600 transition-colors pb-1" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-4">
+        <div class="flex items-center bg-slate-100 p-1 rounded-lg border border-slate-200 text-xs">
+          <button class="lang-btn px-2.5 py-1 rounded-md transition-all" data-lang="en">EN</button>
+          <button class="lang-btn px-2.5 py-1 rounded-md transition-all" data-lang="ko">한국어</button>
+          <button class="lang-btn px-2.5 py-1 rounded-md transition-all" data-lang="si">සිංහල</button>
+        </div>
+
+        <a href="contact.html" class="magnetic-btn bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs tracking-wide uppercase px-5 py-2.5 rounded-lg shadow-sm transition-all" data-i18n="nav.demo">
+          Request Demo
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-700 hover:text-blue-600" aria-label="Toggle Navigation">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Overlay Menu -->
+  <div id="mobile-nav-overlay" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex flex-col justify-between p-6 transform translate-x-full transition-transform duration-300 md:hidden">
+    <div>
+      <div class="flex items-center justify-between mb-8">
+        <div class="flex items-center gap-3">
+          <img src="assets/images/logo.png" alt="NeuroStep AI Official Logo" class="w-9 h-9 rounded-full object-cover">
+          <span class="text-white font-bold text-xl">NeuroStep <span class="text-blue-400">AI</span></span>
+        </div>
+        <button id="mobile-menu-close" class="text-slate-400 hover:text-white p-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-5 text-lg font-medium text-slate-200">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="product.html" data-i18n="nav.product">Product</a>
+        <a href="solutions.html" data-i18n="nav.solutions">Solutions</a>
+        <a href="research.html" data-i18n="nav.research">Research</a>
+        <a href="about.html" class="text-blue-400 font-semibold" data-i18n="nav.about">About</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <div class="flex items-center justify-center gap-2 bg-slate-800/80 p-2 rounded-xl text-xs text-white">
+        <button class="lang-btn px-3 py-1.5 rounded-lg" data-lang="en">EN</button>
+        <button class="lang-btn px-3 py-1.5 rounded-lg" data-lang="ko">한국어</button>
+        <button class="lang-btn px-3 py-1.5 rounded-lg" data-lang="si">සිංහල</button>
+      </div>
+
+      <a href="contact.html" class="bg-blue-600 text-center text-white font-semibold py-3 rounded-xl shadow-lg" data-i18n="nav.demo">
+        Request Demo
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow pt-20">
+
+    <!-- HERO -->
+    <section class="py-16 md:py-20 bg-gradient-to-b from-sky-50 via-slate-50 to-white border-b border-slate-200">
+      <div class="site-container text-center max-w-4xl">
+        <img src="assets/images/logo.png" alt="NeuroStep AI Official Emblem" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-6 rounded-full shadow-2xl border-4 border-white bg-slate-900 object-cover hover:scale-105 transition-transform duration-300">
+        <span class="editorial-number">OUR MISSION</span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6" data-i18n="about.hero_title">
+          Engineering Better Mobility Through Wearable Intelligence
+        </h1>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed" data-i18n="about.hero_sub">
+          To make gait assessment more accessible, measurable, and personalized through intelligent wearable technology.
+        </p>
+      </div>
+    </section>
+
+    <!-- ASYMMETRIC TEAM SHOWCASE -->
+    <section class="py-20 bg-white border-b border-slate-200">
+      <div class="site-container">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="editorial-number" data-i18n="about.team_title">LEADERSHIP & CORE TEAM</span>
+          <h2 class="text-3xl font-extrabold text-slate-900">
+            Multidisciplinary Engineering & Clinical Team
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+          
+          <!-- Founder Highlight Card (Compact Top Banner) -->
+          <div class="md:col-span-12 lg:col-span-12 bg-gradient-to-r from-slate-900 via-navy to-slate-900 text-white rounded-3xl p-6 sm:p-7 shadow-xl border border-slate-800 flex flex-col sm:flex-row items-center sm:items-start gap-6">
+            <img src="assets/images/about/Thathsara.jpg" alt="Thathsara Nanayakkara" class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover object-top border-2 border-cyan-400/50 shadow-lg flex-shrink-0">
+            
+            <div class="flex flex-col justify-between h-full w-full">
+              <div>
+                <div class="flex flex-wrap items-center gap-3 mb-1">
+                  <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">Founder & Chief Technology Lead</span>
+                  <span class="px-2.5 py-0.5 bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-[10px] font-bold rounded-full uppercase">Founder</span>
+                </div>
+
+                <h3 class="text-xl sm:text-2xl font-bold text-white mb-1">Thathsara Nanayakkara</h3>
+                
+                <!-- Qualification string as subtle plain text -->
+                <p class="text-xs font-mono text-cyan-300/90 mb-3 leading-relaxed">
+                  BSc.Eng.(Hons) (SL), MEng (S.Korea), CEng, MIET(UK), AEng(ECSL), AMIE(SL), MIEEE
+                </p>
+
+                <!-- Website and LinkedIn Buttons under Qualification -->
+                <div class="flex flex-wrap items-center gap-2 mb-4">
+                  <a href="https://sites.google.com/view/thathsara" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 text-xs font-medium rounded-lg transition-colors">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                    <span>Website ↗</span>
+                  </a>
+                  
+                  <a href="https://www.linkedin.com/in/thathsarananayakkara/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-600/30 hover:bg-blue-600/50 text-cyan-300 border border-cyan-500/40 text-xs font-medium rounded-lg transition-colors">
+                    <svg class="w-3.5 h-3.5 fill-current text-cyan-400" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
+                    <span>LinkedIn ↗</span>
+                  </a>
+                </div>
+
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                  Directing NeuroStep AI's core hardware-software architecture, smart-insole R&D, gait and CoP feature analytics pipelines, and research translation into commercial mobility platforms.
+                </p>
+              </div>
+              
+              <div class="flex flex-wrap gap-2 pt-3 border-t border-slate-800 text-xs font-semibold text-cyan-300">
+                <span class="bg-slate-800/80 px-2.5 py-0.5 rounded-md border border-slate-700">Product Architecture</span>
+                <span class="bg-slate-800/80 px-2.5 py-0.5 rounded-md border border-slate-700">Smart Insole R&D</span>
+                <span class="bg-slate-800/80 px-2.5 py-0.5 rounded-md border border-slate-700">Gait / CoP Analytics</span>
+                <span class="bg-slate-800/80 px-2.5 py-0.5 rounded-md border border-slate-700">Tech Strategy</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team Member 2: Chamod Sankalpa Lokuliyanage -->
+          <div class="md:col-span-6 lg:col-span-6 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 shadow-md hover:shadow-lg transition-all">
+            <img src="assets/images/about/Sankalpa.PNG" alt="Chamod Sankalpa Lokuliyanage" class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover object-top border-2 border-slate-100 shadow-md flex-shrink-0">
+            <div class="flex flex-col justify-between h-full w-full">
+              <div>
+                <span class="text-xs font-bold text-blue-600 uppercase tracking-wide block mb-1">Software & AI Lead</span>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Chamod Sankalpa Lokuliyanage</h3>
+                <p class="text-slate-600 text-xs leading-relaxed mb-3">
+                  Leading AI/ML model deployment, mobile and web platforms, backend APIs, and IoMT BLE data synchronization.
+                </p>
+                <div class="flex flex-wrap items-center gap-2 mb-3">
+                  <a href="https://sankalpalokuliyanage.github.io/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 text-xs font-medium rounded-lg transition-colors">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                    <span>Website ↗</span>
+                  </a>
+
+                  <a href="https://www.linkedin.com/in/sankalpa-lokuliyanage/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 text-xs font-medium rounded-lg transition-colors">
+                    <svg class="w-3.5 h-3.5 fill-current text-blue-600" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
+                    <span>LinkedIn ↗</span>
+                  </a>
+                </div>
+              </div>
+              <div class="text-[11px] font-semibold text-slate-500 pt-3 border-t border-slate-100">AI / ML • Mobile • Backend • IoMT</div>
+            </div>
+          </div>
+
+          <!-- Team Member 3: Chamishka Dilshani Galabada -->
+          <div class="md:col-span-6 lg:col-span-6 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 shadow-md hover:shadow-lg transition-all">
+            <img src="assets/images/about/Chamshika.jpeg" alt="Chamishka Dilshani Galabada" class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover object-top border-2 border-slate-100 shadow-md flex-shrink-0">
+            <div class="flex flex-col justify-between h-full w-full">
+              <div>
+                <span class="text-xs font-bold text-teal-600 uppercase tracking-wide block mb-1">Business & Commercialization Lead</span>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Chamishka Dilshani Galabada</h3>
+                <p class="text-slate-600 text-xs leading-relaxed mb-3">
+                  Driving business model development, market opportunity analysis, strategic healthcare partnerships, and commercial growth.
+                </p>
+                <a href="https://www.linkedin.com/in/chamishka-galabada-184064229/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 bg-teal-50 hover:bg-teal-100 text-teal-800 border border-teal-200 text-xs font-medium rounded-lg transition-colors mb-3">
+                  <svg class="w-3.5 h-3.5 fill-current text-teal-700" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
+                  <span>LinkedIn Profile ↗</span>
+                </a>
+              </div>
+              <div class="text-[11px] font-semibold text-slate-500 pt-3 border-t border-slate-100">Business Strategy • Commercial Growth • Partnerships</div>
+            </div>
+          </div>
+
+          <!-- Team Member 4: Ruuth Lakshani Rasangika -->
+          <div class="md:col-span-6 lg:col-span-6 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 shadow-md hover:shadow-lg transition-all">
+            <img src="assets/images/about/Ruuth.jpeg" alt="Ruuth Lakshani Rasangika" class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover object-top border-2 border-slate-100 shadow-md flex-shrink-0">
+            <div class="flex flex-col justify-between h-full w-full">
+              <div>
+                <span class="text-xs font-bold text-purple-600 uppercase tracking-wide block mb-1">Research & Validation Lead</span>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Ruuth Lakshani Rasangika</h3>
+                <p class="text-slate-600 text-xs leading-relaxed mb-3">
+                  Overseeing experimental research design, study protocols, scientific evidence validation, and statistical biomechanical data interpretation.
+                </p>
+                <a href="https://www.linkedin.com/in/ruuth-goonawardana/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-50 hover:bg-purple-100 text-purple-800 border border-purple-200 text-xs font-medium rounded-lg transition-colors mb-3">
+                  <svg class="w-3.5 h-3.5 fill-current text-purple-700" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
+                  <span>LinkedIn Profile ↗</span>
+                </a>
+              </div>
+              <div class="text-[11px] font-semibold text-slate-500 pt-3 border-t border-slate-100">Research Design • Scientific Evidence • Protocols</div>
+            </div>
+          </div>
+
+          <!-- Team Member 5: Jang Saem -->
+          <div class="md:col-span-6 lg:col-span-6 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 shadow-md hover:shadow-lg transition-all">
+            <img src="assets/images/about/Jang.jpg" alt="Jang Saem" class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover object-top border-2 border-slate-100 shadow-md flex-shrink-0">
+            <div class="flex flex-col justify-between h-full w-full">
+              <div>
+                <span class="text-xs font-bold text-emerald-600 uppercase tracking-wide block mb-1">Clinical & Medical Lead</span>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Jang Saem</h3>
+                <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                  Ensuring clinical relevance of gait metrics, participant safety protocols, functional assessments, and medical interpretability.
+                </p>
+              </div>
+              <div class="text-[11px] font-semibold text-slate-500 pt-3 border-t border-slate-100">Clinical Relevance • Medical Safety • Functional Evaluation</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 py-16 border-t border-slate-800">
+    <div class="site-container">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+        
+        <div class="md:col-span-5">
+          <a href="index.html" class="flex items-center gap-3 mb-4">
+            <img src="assets/images/logo.png" alt="NeuroStep AI Official Logo" class="w-9 h-9 rounded-full shadow-md object-cover">
+            <span class="font-bold text-xl text-white">NeuroStep <span class="text-blue-400">AI</span></span>
+          </a>
+          <p class="text-sm text-slate-400 leading-relaxed mb-6" data-i18n="footer.desc">
+            NeuroStep AI - A research-driven wearable mobility startup transforming everyday steps into meaningful gait insight.
+          </p>
+          <div class="flex items-center gap-3">
+            <a href="https://www.linkedin.com/company/neurostep-ai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800 border border-slate-700 hover:border-blue-500 hover:bg-blue-600/20 text-xs font-bold text-slate-200 hover:text-white transition-all group shadow-sm" aria-label="LinkedIn Page">
+              <svg class="w-4 h-4 fill-current text-blue-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.45 1.45 0 1 0 0 2.9 1.45 1.45 0 0 0 0-2.9Z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://www.facebook.com/NeuroStepAI" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800 border border-slate-700 hover:border-blue-500 hover:bg-blue-600/20 text-xs font-bold text-slate-200 hover:text-white transition-all group shadow-sm" aria-label="Facebook Page">
+              <svg class="w-4 h-4 fill-current text-blue-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+              <span>Facebook</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="md:col-span-3">
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Navigation</h4>
+          <ul class="flex flex-col gap-2 text-sm">
+            <li><a href="index.html" class="hover:text-white transition-colors" data-i18n="nav.home">Home</a></li>
+            <li><a href="product.html" class="hover:text-white transition-colors" data-i18n="nav.product">Product</a></li>
+            <li><a href="solutions.html" class="hover:text-white transition-colors" data-i18n="nav.solutions">Solutions</a></li>
+            <li><a href="research.html" class="hover:text-white transition-colors" data-i18n="nav.research">Research</a></li>
+            <li><a href="about.html" class="hover:text-white transition-colors" data-i18n="nav.about">About</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4">
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4" data-i18n="footer.disclaimer_title">Scientific & Regulatory Disclaimer</h4>
+          <p class="text-xs leading-relaxed text-slate-400 bg-slate-800/60 p-4 rounded-xl border border-slate-700/60" data-i18n="footer.disclaimer">
+            NeuroStep AI is currently in the active research, development, and testing stage and has not yet been launched as a commercial product. The platform is being developed for gait assessment, mobility monitoring, rehabilitation support, and research applications. Information presented on this website is for research, educational, and product-information purposes only and should not be interpreted as a medical diagnosis. For specific details or pilot inquiries, please contact our team.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <span data-i18n="footer.rights">© 2026 NeuroStep AI. All rights reserved.</span>
+        <div class="flex items-center gap-4">
+          <button class="lang-btn hover:text-white" data-lang="en">EN</button>
+          <span>•</span>
+          <button class="lang-btn hover:text-white" data-lang="ko">한국어</button>
+          <span>•</span>
+          <button class="lang-btn hover:text-white" data-lang="si">සිංහල</button>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

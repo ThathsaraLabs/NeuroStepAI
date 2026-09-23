@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Publications & Evidence | NeuroStep AI</title>
+  <meta name="description" content="Explore peer-reviewed journal articles, Springer publications, Best Paper awards, and biomedical research underlying NeuroStep AI smart insole technology.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0B1F33',
+            blue: { 600: '#2563EB', 700: '#1D4ED8' },
+            teal: { 500: '#0F9D8D', 600: '#0D8A7C' },
+            cyan: { 400: '#22B8CF' },
+            sky: { 50: '#EAF4FF' }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen relative">
+
+  <!-- Scroll Progress Line -->
+  <div id="scroll-progress-bar"></div>
+
+  <!-- Header Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-header">
+    <div class="site-container h-20 flex items-center justify-between">
+      
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="assets/images/logo.png" alt="NeuroStep AI Official Logo" class="w-10 h-10 rounded-full shadow-md group-hover:scale-105 transition-transform object-cover">
+        <div class="flex flex-col">
+          <span class="font-bold text-xl tracking-tight text-slate-900 leading-tight">NeuroStep <span class="text-blue-600">AI</span></span>
+          <span class="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Gait Intelligence</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-700">
+        <a href="index.html" class="hover:text-blue-600 transition-colors pb-1" data-i18n="nav.home">Home</a>
+        <a href="product.html" class="hover:text-blue-600 transition-colors pb-1" data-i18n="nav.product">Product</a>
+        <a href="solutions.html" class="hover:text-blue-600 transition-colors pb-1" data-i18n="nav.solutions">Solutions</a>
+        <a href="research.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1" data-i18n="nav.research">Research</a>
+        <a href="about.html" class="hover:text-blue-600 transition-colors pb-1" data-i18n="nav.about">About</a>
+        <a href="contact.html" class="hover:text-blue-600 transition-colors pb-1" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-4">
+        <div class="flex items-center bg-slate-100 p-1 rounded-lg border border-slate-200 text-xs">
+          <button class="lang-btn px-2.5 py-1 rounded-md transition-all" data-lang="en">EN</button>
+          <button class="lang-btn px-2.5 py-1 rounded-md transition-all" data-lang="ko">한국어</button>
+          <button class="lang-btn px-2.5 py-1 rounded-md transition-all" data-lang="si">සිංහල</button>
+        </div>
+
+        <a href="contact.html" class="magnetic-btn bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs tracking-wide uppercase px-5 py-2.5 rounded-lg shadow-sm transition-all" data-i18n="nav.demo">
+          Request Demo
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-700 hover:text-blue-600" aria-label="Toggle Navigation">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Overlay Menu -->
+  <div id="mobile-nav-overlay" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex flex-col justify-between p-6 transform translate-x-full transition-transform duration-300 md:hidden">
+    <div>
+      <div class="flex items-center justify-between mb-8">
+        <div class="flex items-center gap-3">
+          <img src="assets/images/logo.png" alt="NeuroStep AI Official Logo" class="w-9 h-9 rounded-full object-cover">
+          <span class="text-white font-bold text-xl">NeuroStep <span class="text-blue-400">AI</span></span>
+        </div>
+        <button id="mobile-menu-close" class="text-slate-400 hover:text-white p-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-5 text-lg font-medium text-slate-200">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="product.html" data-i18n="nav.product">Product</a>
+        <a href="solutions.html" data-i18n="nav.solutions">Solutions</a>
+        <a href="research.html" class="text-blue-400 font-semibold" data-i18n="nav.research">Research</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <div class="flex items-center justify-center gap-2 bg-slate-800/80 p-2 rounded-xl text-xs text-white">
+        <button class="lang-btn px-3 py-1.5 rounded-lg" data-lang="en">EN</button>
+        <button class="lang-btn px-3 py-1.5 rounded-lg" data-lang="ko">한국어</button>
+        <button class="lang-btn px-3 py-1.5 rounded-lg" data-lang="si">සිංහල</button>
+      </div>
+
+      <a href="contact.html" class="bg-blue-600 text-center text-white font-semibold py-3 rounded-xl shadow-lg" data-i18n="nav.demo">
+        Request Demo
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow pt-20">
+
+    <!-- HERO SECTION WITH DYNAMIC ANIMATED COUNTERS -->
+    <section class="py-16 md:py-20 bg-gradient-to-b from-sky-50 via-slate-50 to-white border-b border-slate-200">
+      <div class="site-container text-center max-w-4xl">
+        
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-xs font-semibold mb-6">
+          <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <span data-i18n="research.hero_badge">Peer-Reviewed Publications & Scientific Evidence</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6" data-i18n="research.hero_title">
+          Research Behind NeuroStep AI
+        </h1>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed mb-12" data-i18n="research.hero_sub">
+          Built from wearable gait analysis, plantar-pressure sensing, CoP analytics, and biomedical engineering research.
+        </p>
+
+        <!-- Dynamic Counter Stats Strip (Clean single counter display per card) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-left">
+          
+          <!-- Stat 1: Peer-Reviewed Papers (4) -->
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5 hover:border-blue-600 transition-all">
+            <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl">
+              📚
+            </div>
+            <div>
+              <span class="text-3xl font-extrabold text-slate-900 block leading-tight">
+                <span class="stat-counter" data-target="4">0</span>
+              </span>
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block" data-i18n="research.stat_papers">Peer-Reviewed Papers</span>
+            </div>
+          </div>
+
+          <!-- Stat 2: Research Citations (15+) -->
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5 hover:border-teal-600 transition-all">
+            <div class="w-14 h-14 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center text-2xl">
+              📈
+            </div>
+            <div>
+              <span class="text-3xl font-extrabold text-slate-900 block leading-tight">
+                <span class="stat-counter" data-target="15">0</span>+
+              </span>
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block" data-i18n="research.stat_citations">Research Citations</span>
+            </div>
+          </div>
+
+          <!-- Stat 3: Honours & Awards (2) -->
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5 hover:border-purple-600 transition-all">
+            <div class="w-14 h-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl">
+              🏆
+            </div>
+            <div>
+              <span class="text-3xl font-extrabold text-slate-900 block leading-tight">
+                <span class="stat-counter" data-target="2">0</span>
+              </span>
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block" data-i18n="research.stat_awards">Honours and Awards</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 01: JOURNAL PUBLICATION 1 (MDPI SENSORS 2025) -->
+    <section class="py-20 bg-white border-b border-slate-200">
+      <div class="site-container max-w-6xl">
+        
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <span class="editorial-number" data-i18n="research.p1_tag">01 / INTERNATIONAL JOURNAL PUBLICATION</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900" data-i18n="research.p1_header">MDPI Sensors Journal (2025)</h2>
+          </div>
+          <span class="px-3.5 py-1.5 bg-purple-100 text-purple-800 text-xs font-bold rounded-full" data-i18n="research.p1_badge">Impact Factor: 4.0 • Q1</span>
+        </div>
+
+        <article class="bg-gradient-to-br from-slate-900 via-navy to-slate-900 text-white rounded-3xl p-8 md:p-12 shadow-2xl border border-slate-800 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <div class="lg:col-span-5 flex flex-col items-center">
+            <div class="relative group cursor-pointer overflow-hidden rounded-2xl border border-slate-700 shadow-2xl bg-white p-2 transition-transform duration-300 hover:scale-[1.02]" onclick="openLightbox('assets/images/research/mdpi-sensors-paper.jpg', 'MDPI Sensors Journal Article First Page')">
+              <img src="assets/images/research/mdpi-sensors-paper.jpg" alt="MDPI Sensors Journal Article First Page" class="w-full h-auto rounded-xl object-cover filter contrast-[1.02]">
+              
+              <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white text-xs font-bold">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                <span data-i18n="research.click_inspect">Click to Inspect First Page</span>
+              </div>
+            </div>
+            <span class="text-[11px] text-slate-400 mt-3 font-mono">Sensors 2025, 25(18), 5859</span>
+          </div>
+
+          <div class="lg:col-span-7 flex flex-col justify-between">
+            <div>
+              <div class="flex flex-wrap items-center gap-3 mb-4">
+                <span class="px-3 py-1 bg-teal-500 text-slate-950 font-bold text-xs rounded-full uppercase tracking-wider" data-i18n="research.p1_choice">EDITOR'S CHOICE</span>
+                <span class="px-3 py-1 bg-slate-800 text-cyan-400 font-mono text-xs rounded-full border border-slate-700" data-i18n="research.p1_open">Open Access</span>
+              </div>
+
+              <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4 leading-tight" data-i18n="research.p1_title">
+                Multi-Domain CoP Feature Analysis of Functional Mobility for Parkinson's Disease Detection Using Wearable Pressure Insoles
+              </h3>
+
+              <div class="text-sm text-cyan-300 font-medium mb-6" data-i18n="research.p1_pub_details">
+                Published in <span class="italic font-bold">Sensors</span>, Volume 25, Issue 18, Article 5859 (September 2025)
+              </div>
+
+              <div class="space-y-3 mb-8">
+                <div class="p-3.5 bg-slate-800/80 rounded-xl border border-slate-700/80 flex items-start gap-3">
+                  <div class="w-2 h-2 rounded-full bg-cyan-400 mt-1.5 flex-shrink-0"></div>
+                  <p class="text-xs text-slate-300 leading-relaxed" data-i18n="research.p1_bullet1">
+                    <strong class="text-white">Center of Pressure (CoP) Feature Extraction:</strong> Extracted 144 CoP features across positional, dynamic, frequency, and stochastic domains including per-foot averages and asymmetry indices.
+                  </p>
+                </div>
+
+                <div class="p-3.5 bg-slate-800/80 rounded-xl border border-slate-700/80 flex items-start gap-3">
+                  <div class="w-2 h-2 rounded-full bg-teal-400 mt-1.5 flex-shrink-0"></div>
+                  <p class="text-xs text-slate-300 leading-relaxed" data-i18n="research.p1_bullet2">
+                    <strong class="text-white">Timed Up and Go (TUG) Protocol:</strong> Evaluated diagnostic utility across 39 Parkinson's disease and 38 control participants during dynamic balance and turn tasks.
+                  </p>
+                </div>
+
+                <div class="p-3.5 bg-slate-800/80 rounded-xl border border-slate-700/80 flex items-start gap-3">
+                  <div class="w-2 h-2 rounded-full bg-blue-400 mt-1.5 flex-shrink-0"></div>
+                  <p class="text-xs text-slate-300 leading-relaxed" data-i18n="research.p1_bullet3">
+                    <strong class="text-white">Machine Learning Diagnostic Performance:</strong> High diagnostic classification accuracy (<strong class="text-cyan-300">ROC-AUC = 0.921</strong>) achieved using a 23-feature WearGait-PD subset.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-slate-800">
+              <a href="https://doi.org/10.3390/s25185859" target="_blank" rel="noopener noreferrer" class="magnetic-btn bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl shadow-lg transition-all flex items-center gap-2">
+                <span data-i18n="research.p1_btn">View Publication on MDPI ↗</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+
+              <span class="text-xs text-slate-400 font-mono">DOI: 10.3390/s25185859</span>
+            </div>
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECTION 02: JOURNAL PUBLICATION 2 (JOURNAL OF KOREA MULTIMEDIA SOCIETY WITH DOI LINK) -->
+    <section class="py-20 bg-slate-50 border-b border-slate-200">
+      <div class="site-container max-w-6xl">
+        
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <span class="editorial-number" data-i18n="research.p2_tag">02 / NATIONAL RESEARCH FOUNDATION REGISTERED JOURNAL</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900" data-i18n="research.p2_header">Journal of Korea Multimedia Society (2025)</h2>
+          </div>
+          <span class="px-3.5 py-1.5 bg-blue-100 text-blue-800 text-xs font-bold rounded-full" data-i18n="research.p2_badge">NRF Registered Journal</span>
+        </div>
+
+        <article class="bg-white border border-slate-200 rounded-3xl p-8 md:p-10 shadow-md grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <div class="lg:col-span-5 flex flex-col items-center">
+            <div class="relative group cursor-pointer overflow-hidden rounded-2xl border border-slate-200 shadow-lg bg-white p-2 transition-transform duration-300 hover:scale-[1.02]" onclick="openLightbox('assets/images/research/kmms-journal-paper.jpg', 'Journal of Korea Multimedia Society Table of Contents')">
+              <img src="assets/images/research/kmms-journal-paper.jpg" alt="Journal of Korea Multimedia Society Article First Page" class="w-full h-auto rounded-xl object-cover filter contrast-[1.02]">
+              
+              <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white text-xs font-bold">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                <span data-i18n="research.click_inspect">Click to Inspect First Page</span>
+              </div>
+            </div>
+            <span class="text-[11px] text-slate-500 mt-3 font-mono">Vol. 28, No. 7, July 2025 • Page 807</span>
+          </div>
+
+          <div class="lg:col-span-7 flex flex-col justify-between">
+            <div>
+              <div class="inline-block px-3 py-1 bg-purple-50 text-purple-700 font-semibold text-xs rounded-full mb-4 border border-purple-200" data-i18n="research.p2_category">
+                Multimedia Information Processing and IT Convergence
+              </div>
+
+              <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 leading-tight" data-i18n="research.p2_title">
+                IoMT–Based Smart Insole System for Comprehensive Gait Analysis: Plantar Pressure and Foot Dynamics Assessment
+              </h3>
+
+              <div class="text-sm text-slate-600 font-medium mb-6 leading-relaxed" data-i18n="research.p2_pub_details">
+                Published in <span class="italic font-bold text-slate-800">Journal of Korea Multimedia Society (멀티미디어학회논문지)</span>, Vol. 28, No. 7, July 2025, Page 807.
+              </div>
+
+              <div class="space-y-3 mb-8">
+                <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-3">
+                  <div class="w-2 h-2 rounded-full bg-blue-600 mt-1.5 flex-shrink-0"></div>
+                  <p class="text-xs text-slate-600 leading-relaxed" data-i18n="research.p2_bullet1">
+                    <strong class="text-slate-900">IoMT System Architecture:</strong> Comprehensive Internet of Medical Things (IoMT) hardware-software architecture for real-time plantar pressure collection and foot kinematics assessment.
+                  </p>
+                </div>
+
+                <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-3">
+                  <div class="w-2 h-2 rounded-full bg-teal-600 mt-1.5 flex-shrink-0"></div>
+                  <p class="text-xs text-slate-600 leading-relaxed" data-i18n="research.p2_bullet2">
+                    <strong class="text-slate-900">Plantar Dynamics Assessment:</strong> Multi-point force-sensing mapping for precise stance phase load distribution and heel-to-toe progression tracking.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-slate-200">
+              <a href="https://doi.org/10.9717/kmms.2025.28.7.807" target="_blank" rel="noopener noreferrer" class="magnetic-btn bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl shadow-md transition-all flex items-center gap-2">
+                <span data-i18n="research.p2_btn">Access Original Paper ↗</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+
+              <span class="text-xs text-slate-500 font-mono">DOI: 10.9717/kmms.2025.28.7.807</span>
+            </div>
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECTION 03: SPRINGER PUBLICATION (MITA 2025 WITH SPRINGER DOI & KEY FINDINGS) -->
+    <section class="py-20 bg-white border-b border-slate-200">
+      <div class="site-container max-w-6xl">
+        
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <span class="editorial-number" data-i18n="research.p3_tag">03 / SPRINGER INTERNATIONAL PUBLICATION</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900" data-i18n="research.p3_header">Springer Proceedings (MITA 2025)</h2>
+          </div>
+          <span class="px-3.5 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full border border-emerald-300" data-i18n="research.p3_badge">Springer Publication</span>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-10 shadow-sm">
+          
+          <div class="max-w-4xl mb-8">
+            <div class="inline-block px-3 py-1 bg-emerald-50 text-emerald-700 font-semibold text-xs rounded-full mb-3 border border-emerald-200" data-i18n="research.p3_category">
+              Springer Lecture Notes in Electrical Engineering • MITA 2025
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3 leading-tight" data-i18n="research.p3_title">
+              Phase-Specific Gait Characterization and Plantar Load Progression Analysis Using Smart Insoles
+            </h3>
+
+            <p class="text-sm text-slate-600 font-medium mb-4" data-i18n="research.p3_pub_details">
+              21st International Conference on Multimedia Information Technology and Applications • Published by Springer Nature Switzerland (Jeju Island, South Korea)
+            </p>
+
+            <!-- Key Findings Callout Box -->
+            <div class="p-5 bg-white rounded-2xl border border-emerald-200 shadow-sm mb-6">
+              <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider block mb-2" data-i18n="research.key_findings_title">Key Findings of This Research</span>
+              <p class="text-xs text-slate-700 leading-relaxed font-medium" data-i18n="research.p3_findings">
+                Phase-specific gait characterization reveals distinct plantar load progression curves across four stance sub-phases: <strong>Heel Strike (HES)</strong>, <strong>Foot Flat (FOF)</strong>, <strong>Heel Rise (HER)</strong>, and <strong>Toe Off (TOF)</strong>. Quantitative FSR and IMU signal synchronization enables objective detection of stance load transfer (weight transfer) dynamics and stride instability.
+              </p>
+            </div>
+          </div>
+
+          <!-- Photo Evidence Gallery Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            
+            <div class="group relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 cursor-pointer" onclick="openLightbox('assets/images/research/mita-presentation.jpg', 'MITA 2025 Keynote Presentation at Podium')">
+              <img src="assets/images/research/mita-presentation.jpg" alt="Technical Presentation at MITA 2025" class="w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-90 p-4 flex flex-col justify-end">
+                <span class="text-xs font-bold text-white mb-1" data-i18n="research.p3_img1_title">MITA 2025 Oral Presentation</span>
+                <span class="text-[10px] text-cyan-300" data-i18n="research.p3_img1_sub">Smart Insole Hardware & IMU/CoP Features</span>
+              </div>
+            </div>
+
+            <div class="group relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 cursor-pointer" onclick="openLightbox('assets/images/research/mita-methodology-slide.jpg', 'Gait Phase Annotation Protocol: HES, FOF, HER, TOF')">
+              <img src="assets/images/research/mita-methodology-slide.jpg" alt="Gait Phase Annotation Protocol Slide" class="w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-90 p-4 flex flex-col justify-end">
+                <span class="text-xs font-bold text-white mb-1" data-i18n="research.p3_img2_title">Gait Phase Annotation Protocol</span>
+                <span class="text-[10px] text-amber-300" data-i18n="research.p3_img2_sub">HES (Heel Strike) → FOF (Foot Flat) → HER (Heel Rise) → TOF (Toe Off)</span>
+              </div>
+            </div>
+
+            <div class="group relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 cursor-pointer" onclick="openLightbox('assets/images/research/mita-conference-hall.jpg', 'MITA 2025 Conference Session Hall')">
+              <img src="assets/images/research/mita-conference-hall.jpg" alt="MITA 2025 Conference Session Hall" class="w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-90 p-4 flex flex-col justify-end">
+                <span class="text-xs font-bold text-white mb-1" data-i18n="research.p3_img3_title">International Technical Session</span>
+                <span class="text-[10px] text-teal-300" data-i18n="research.p3_img3_sub">Jeju Island Conference Hall</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-slate-200">
+            <a href="https://doi.org/10.1007/978-981-95-3141-7_18" target="_blank" rel="noopener noreferrer" class="magnetic-btn bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl shadow-md transition-all flex items-center gap-2">
+              <span data-i18n="research.p3_btn">View Publication on Springer ↗</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+
+            <span class="text-xs text-slate-500 font-mono">DOI: 10.1007/978-981-95-3141-7_18</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 04: AWARD-WINNING CONFERENCE RESEARCH (KMMS SPRING 2025) -->
+    <section class="py-20 bg-slate-50 border-b border-slate-200">
+      <div class="site-container max-w-6xl">
+        
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <span class="editorial-number" data-i18n="research.p4_tag">04 / AWARD-WINNING CONFERENCE RESEARCH</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900" data-i18n="research.p4_header">KMMS Spring Conference 2025</h2>
+          </div>
+          <span class="px-3.5 py-1.5 bg-gradient-to-r from-blue-600 to-teal-500 text-white text-xs font-bold rounded-full shadow-sm" data-i18n="research.p4_badge">BEST PAPER AWARD</span>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-3xl p-8 md:p-10 shadow-md">
+          
+          <div class="max-w-4xl mb-8">
+            <div class="inline-block px-3 py-1 bg-blue-50 text-blue-700 font-semibold text-xs rounded-full mb-3 border border-blue-200" data-i18n="research.p4_category">
+              Korea Multimedia Society Spring Conference 2025 • Best Paper Award
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3 leading-tight" data-i18n="research.p4_title">
+              Comprehensive Biomechanical Analysis of Gait Through IoMT-Based Combined IMU and COP Feature Analysis
+            </h3>
+
+            <p class="text-sm text-slate-600 font-medium mb-4" data-i18n="research.p4_pub_details">
+              Korea Multimedia Society Spring Conference 2025 • Chung-Ang University, Seoul, South Korea (May 8–10, 2025)
+            </p>
+
+            <!-- Key Findings Callout Box -->
+            <div class="p-5 bg-white rounded-2xl border border-blue-200 shadow-sm mb-6">
+              <span class="text-xs font-bold text-blue-700 uppercase tracking-wider block mb-2" data-i18n="research.key_findings_title">Key Findings of This Research</span>
+              <p class="text-xs text-slate-700 leading-relaxed font-medium" data-i18n="research.p4_findings">
+                Synchronized fusion of 6-axis IMU acceleration metrics with 16-point plantar pressure CoP feature extraction provides superior biomechanical gait assessment compared to single-sensor modalities.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            
+            <div class="group relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 cursor-pointer" onclick="openLightbox('assets/images/research/kmms-award-ceremony.jpg', 'KMMS 2025 Best Paper Award Ceremony')">
+              <img src="assets/images/research/kmms-award-ceremony.jpg" alt="Best Paper Award Ceremony at KMMS 2025" class="w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-90 p-4 flex flex-col justify-end">
+                <span class="text-xs font-bold text-white mb-1" data-i18n="research.p4_img1_title">Best Paper Award Ceremony</span>
+                <span class="text-[10px] text-teal-300" data-i18n="research.p4_img1_sub">KMMS 2025 • Chung-Ang University</span>
+              </div>
+            </div>
+
+            <div class="group relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 cursor-pointer" onclick="openLightbox('assets/images/research/kmms-presentation.jpg', 'KMMS 2025 Presentation at Podium')">
+              <img src="assets/images/research/kmms-presentation.jpg" alt="Oral Presentation at KMMS 2025" class="w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-90 p-4 flex flex-col justify-end">
+                <span class="text-xs font-bold text-white mb-1" data-i18n="research.p4_img2_title">Oral Session Presentation</span>
+                <span class="text-[10px] text-cyan-300" data-i18n="research.p4_img2_sub">Biomechanics & IoMT Research</span>
+              </div>
+            </div>
+
+            <div class="group relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 cursor-pointer" onclick="openLightbox('assets/images/research/kmms-methodology-slide.jpg', 'KMMS 2025 Methodology: Sensor Placement & 16 Key Pressure Points')">
+              <img src="assets/images/research/kmms-methodology-slide.jpg" alt="Methodology Sensor Placement Slide" class="w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-300">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-90 p-4 flex flex-col justify-end">
+                <span class="text-xs font-bold text-white mb-1" data-i18n="research.p4_img3_title">Sensor Placement Methodology</span>
+                <span class="text-[10px] text-amber-300" data-i18n="research.p4_img3_sub">16 Selected Key Pressure Points on Foot</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 05: INTERACTIVE EVIDENCE & VALIDATION TIMELINE -->
+    <section class="py-20 bg-slate-900 text-white">
+      <div class="site-container">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="editorial-number text-cyan-400" data-i18n="research.timeline_tag">RESEARCH EVOLUTION</span>
+          <h2 class="text-3xl font-extrabold text-white" data-i18n="research.timeline_title">
+            Interactive Research & Evidence Timeline
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-center max-w-5xl mx-auto">
+          
+          <div class="p-6 bg-slate-800 rounded-2xl border border-slate-700">
+            <span class="text-xs font-mono text-cyan-400 block mb-2" data-i18n="research.phase1_tag">Phase 1</span>
+            <h4 class="font-bold text-white text-base" data-i18n="research.phase1_title">Prototype R&D</h4>
+            <p class="text-xs text-slate-400 mt-2" data-i18n="research.phase1_desc">Sensor grid calibration and wearable form factor trials.</p>
+          </div>
+
+          <div class="p-6 bg-slate-800 rounded-2xl border border-slate-700">
+            <span class="text-xs font-mono text-cyan-400 block mb-2" data-i18n="research.phase2_tag">Phase 2</span>
+            <h4 class="font-bold text-white text-base" data-i18n="research.phase2_title">Springer MITA</h4>
+            <p class="text-xs text-slate-400 mt-2" data-i18n="research.phase2_desc">Phase-specific stance and load progression validation (Springer).</p>
+          </div>
+
+          <div class="p-6 bg-slate-800 rounded-2xl border border-slate-700">
+            <span class="text-xs font-mono text-cyan-400 block mb-2" data-i18n="research.phase3_tag">Phase 3</span>
+            <h4 class="font-bold text-white text-base" data-i18n="research.phase3_title">KMMS 2025</h4>
+            <p class="text-xs text-slate-400 mt-2" data-i18n="research.phase3_desc">IoMT integration & combined IMU-CoP feature extraction (Best Paper).</p>
+          </div>
+
+          <div class="p-6 bg-slate-800 rounded-2xl border border-slate-700">
+            <span class="text-xs font-mono text-cyan-400 block mb-2" data-i18n="research.phase4_tag">Phase 4</span>
+            <h4 class="font-bold text-white text-base" data-i18n="research.phase4_title">Sensors & JKMS</h4>
+            <p class="text-xs text-slate-400 mt-2" data-i18n="research.phase4_desc">Multi-domain CoP functional mobility publications (MDPI & JKMS).</p>
+          </div>
+
+          <div class="p-6 bg-blue-600 rounded-2xl border border-blue-500">
+            <span class="text-xs font-mono text-cyan-200 block mb-2" data-i18n="research.phase5_tag">Phase 5</span>
+            <h4 class="font-bold text-white text-base" data-i18n="research.phase5_title">NeuroStep AI</h4>
+            <p class="text-xs text-blue-100 mt-2" data-i18n="research.phase5_desc">Commercial-grade mobility & gait intelligence startup platform.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- INTERACTIVE LIGHTBOX MODAL FOR IMAGES -->
+  <div id="image-lightbox-modal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 hidden items-center justify-center p-4" onclick="closeLightbox()">
+    <div class="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center justify-center" onclick="event.stopPropagation()">
+      <button class="absolute -top-10 right-0 text-white hover:text-cyan-400 text-sm font-bold flex items-center gap-1" onclick="closeLightbox()">
+        <span data-i18n="research.close_window">Close Window ✕</span>
+      </button>
+
+      <img id="lightbox-image" src="" alt="Research Evidence View" class="max-h-[80vh] w-auto rounded-2xl shadow-2xl border border-slate-700 object-contain">
+      <span id="lightbox-caption" class="mt-4 text-sm font-medium text-slate-300 text-center bg-slate-900/80 px-4 py-2 rounded-xl border border-slate-800"></span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 py-16 border-t border-slate-800">
+    <div class="site-container">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+        
+        <div class="md:col-span-5">
+          <a href="index.html" class="flex items-center gap-3 mb-4">
+            <img src="assets/images/logo.png" alt="NeuroStep AI Official Logo" class="w-9 h-9 rounded-full shadow-md object-cover">
+            <span class="font-bold text-xl text-white">NeuroStep <span class="text-blue-400">AI</span></span>
+          </a>
+          <p class="text-sm text-slate-400 leading-relaxed mb-6" data-i18n="footer.desc">
+            NeuroStep AI - A research-driven wearable mobility startup transforming everyday steps into meaningful gait insight.
+          </p>
+          <div class="flex items-center gap-3">
+            <a href="https://www.linkedin.com/company/neurostep-ai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800 border border-slate-700 hover:border-blue-500 hover:bg-blue-600/20 text-xs font-bold text-slate-200 hover:text-white transition-all group shadow-sm" aria-label="LinkedIn Page">
+              <svg class="w-4 h-4 fill-current text-blue-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.45 1.45 0 1 0 0 2.9 1.45 1.45 0 0 0 0-2.9Z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://www.facebook.com/NeuroStepAI" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800 border border-slate-700 hover:border-blue-500 hover:bg-blue-600/20 text-xs font-bold text-slate-200 hover:text-white transition-all group shadow-sm" aria-label="Facebook Page">
+              <svg class="w-4 h-4 fill-current text-blue-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+              <span>Facebook</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="md:col-span-3">
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4" data-i18n="footer.nav_title">Navigation</h4>
+          <ul class="flex flex-col gap-2 text-sm">
+            <li><a href="index.html" class="hover:text-white transition-colors" data-i18n="nav.home">Home</a></li>
+            <li><a href="product.html" class="hover:text-white transition-colors" data-i18n="nav.product">Product</a></li>
+            <li><a href="solutions.html" class="hover:text-white transition-colors" data-i18n="nav.solutions">Solutions</a></li>
+            <li><a href="research.html" class="hover:text-white transition-colors" data-i18n="nav.research">Research</a></li>
+            <li><a href="about.html" class="hover:text-white transition-colors" data-i18n="nav.about">About</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4">
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4" data-i18n="footer.disclaimer_title">Scientific & Regulatory Disclaimer</h4>
+          <p class="text-xs leading-relaxed text-slate-400 bg-slate-800/60 p-4 rounded-xl border border-slate-700/60" data-i18n="footer.disclaimer">
+            NeuroStep AI is currently in the active research, development, and testing stage and has not yet been launched as a commercial product. The platform is being developed for gait assessment, mobility monitoring, rehabilitation support, and research applications. Information presented on this website is for research, educational, and product-information purposes only and should not be interpreted as a medical diagnosis. For specific details or pilot inquiries, please contact our team.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <span data-i18n="footer.rights">© 2026 NeuroStep AI. All rights reserved.</span>
+        <div class="flex items-center gap-4">
+          <button class="lang-btn hover:text-white" data-lang="en">EN</button>
+          <span>•</span>
+          <button class="lang-btn hover:text-white" data-lang="ko">한국어</button>
+          <span>•</span>
+          <button class="lang-btn hover:text-white" data-lang="si">සිංහල</button>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  
+  <script>
+    function openLightbox(src, caption) {
+      const modal = document.getElementById('image-lightbox-modal');
+      const img = document.getElementById('lightbox-image');
+      const cap = document.getElementById('lightbox-caption');
+
+      if (!modal || !img) return;
+
+      img.src = src;
+      if (cap) cap.textContent = caption || '';
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('image-lightbox-modal');
+      if (!modal) return;
+
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+  </script>
+
+</body>
+</html>

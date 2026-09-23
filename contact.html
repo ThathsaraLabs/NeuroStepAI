@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Request Demo | NeuroStep AI</title>
+  <meta name="description" content="Connect with NeuroStep AI for smart insole product demonstrations, clinical pilot inquiries, research collaborations, or partner opportunities.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0B1F33',
+            blue: { 600: '#2563EB', 700: '#1D4ED8' },
+            teal: { 500: '#0F9D8D', 600: '#0D8A7C' },
+            cyan: { 400: '#22B8CF' },
+            sky: { 50: '#EAF4FF' }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen relative">
+
+  <div id="scroll-progress-bar"></div>
+
+  <!-- Header Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-header">
+    <div class="site-container h-20 flex items-center justify-between">
+      
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="assets/images/logo.png" alt="NeuroStep AI Official Logo" class="w-10 h-10 rounded-full shadow-md group-hover:scale-105 transition-transform object-cover">
+        <div class="flex flex-col">
+          <span class="font-bold text-xl tracking-tight text-slate-900 leading-tight">NeuroStep <span class="text-blue-600">AI</span></span>
+          <span class="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Gait Intelligence</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-700">
+        <a href="index.html" class="hover:text-blue-600 transition-colors pb-1" data-i18n="nav.home">Home</a>
+        <a href="product.html" class="hover:text-blue-600 transition-colors pb-1" data-i18n="nav.product">Product</a>
+        <a href="solutions.html" class="hover:text-blue-600 transition-colors pb-1" data-i18n="nav.solutions">Solutions</a>
+        <a href="research.html" class="hover:text-blue-600 transition-colors pb-1" data-i18n="nav.research">Research</a>
+        <a href="about.html" class="hover:text-blue-600 transition-colors pb-1" data-i18n="nav.about">About</a>
+        <a href="contact.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-4">
+        <div class="flex items-center bg-slate-100 p-1 rounded-lg border border-slate-200 text-xs">
+          <button class="lang-btn px-2.5 py-1 rounded-md transition-all" data-lang="en">EN</button>
+          <button class="lang-btn px-2.5 py-1 rounded-md transition-all" data-lang="ko">한국어</button>
+          <button class="lang-btn px-2.5 py-1 rounded-md transition-all" data-lang="si">සිංහල</button>
+        </div>
+
+        <a href="contact.html" class="magnetic-btn bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs tracking-wide uppercase px-5 py-2.5 rounded-lg shadow-sm transition-all" data-i18n="nav.demo">
+          Request Demo
+        </a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-700 hover:text-blue-600" aria-label="Toggle Navigation">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Overlay Menu -->
+  <div id="mobile-nav-overlay" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex flex-col justify-between p-6 transform translate-x-full transition-transform duration-300 md:hidden">
+    <div>
+      <div class="flex items-center justify-between mb-8">
+        <div class="flex items-center gap-3">
+          <img src="assets/images/logo.png" alt="NeuroStep AI Official Logo" class="w-9 h-9 rounded-full object-cover">
+          <span class="text-white font-bold text-xl">NeuroStep <span class="text-blue-400">AI</span></span>
+        </div>
+        <button id="mobile-menu-close" class="text-slate-400 hover:text-white p-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-5 text-lg font-medium text-slate-200">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="product.html" data-i18n="nav.product">Product</a>
+        <a href="solutions.html" data-i18n="nav.solutions">Solutions</a>
+        <a href="research.html" data-i18n="nav.research">Research</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="contact.html" class="text-blue-400 font-semibold" data-i18n="nav.contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <div class="flex items-center justify-center gap-2 bg-slate-800/80 p-2 rounded-xl text-xs text-white">
+        <button class="lang-btn px-3 py-1.5 rounded-lg" data-lang="en">EN</button>
+        <button class="lang-btn px-3 py-1.5 rounded-lg" data-lang="ko">한국어</button>
+        <button class="lang-btn px-3 py-1.5 rounded-lg" data-lang="si">සිංහල</button>
+      </div>
+
+      <a href="contact.html" class="bg-blue-600 text-center text-white font-semibold py-3 rounded-xl shadow-lg" data-i18n="nav.demo">
+        Request Demo
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow pt-20">
+
+    <!-- HERO -->
+    <section class="py-16 md:py-20 bg-gradient-to-b from-sky-50 via-slate-50 to-white border-b border-slate-200">
+      <div class="site-container text-center max-w-4xl">
+        <span class="editorial-number">GET IN TOUCH</span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6" data-i18n="contact.hero_title">
+          Let's Move NeuroStep Forward
+        </h1>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed" data-i18n="contact.hero_sub">
+          Interested in a gait assessment, clinical pilot, research collaboration, product demonstration, or investment opportunity? Let's talk.
+        </p>
+      </div>
+    </section>
+
+    <!-- DIRECT CHANNELS STRIP -->
+    <section class="py-12 bg-slate-50 border-b border-slate-200">
+      <div class="site-container max-w-6xl">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Direct Phone Card -->
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-blue-600 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4">
+                📞
+              </div>
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-2">Direct Phone Line</span>
+              <div class="flex flex-col gap-1">
+                <a href="tel:+821048355911" class="text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors">+82 10 4835 5911</a>
+                <a href="tel:+821048320845" class="text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors">+82 10 4832 0845</a>
+              </div>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-4 pt-3 border-t border-slate-100">Available for direct calls & pilot consultations.</p>
+          </div>
+
+          <!-- WhatsApp & KakaoTalk Card -->
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-teal-600 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl mb-4">
+                💬
+              </div>
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-2">WhatsApp & KakaoTalk</span>
+              <a href="https://wa.me/821048355911" target="_blank" rel="noopener noreferrer" class="text-sm font-bold text-slate-900 hover:text-teal-600 transition-colors inline-flex items-center gap-1.5">
+                +82 10 4835 5911
+                <span class="text-[10px] font-bold text-teal-600 bg-teal-50 px-2 py-0.5 rounded border border-teal-200">Chat ↗</span>
+              </a>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-4 pt-3 border-t border-slate-100">Instant messaging via WhatsApp or KakaoTalk.</p>
+          </div>
+
+          <!-- Email Card -->
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-purple-600 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-4">
+                ✉️
+              </div>
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-2">Direct Email</span>
+              <a href="mailto:thathsarananayakkara@gmail.com" class="text-xs font-bold text-slate-900 hover:text-purple-600 transition-colors break-all">
+                thathsarananayakkara@gmail.com
+              </a>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-4 pt-3 border-t border-slate-100">Official research & pilot inquiries.</p>
+          </div>
+
+          <!-- Official Social Pages Card -->
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-blue-600 transition-all flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4">
+                🌐
+              </div>
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-2" data-i18n="contact.social_title">Official Social Pages</span>
+              <div class="flex flex-col gap-2">
+                <a href="https://www.linkedin.com/company/neurostep-ai/" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-slate-900 hover:text-blue-600 transition-colors flex items-center gap-2 group">
+                  <svg class="w-4 h-4 text-blue-600 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.45 1.45 0 1 0 0 2.9 1.45 1.45 0 0 0 0-2.9Z"/></svg>
+                  <span>LinkedIn Page ↗</span>
+                </a>
+                <a href="https://www.facebook.com/NeuroStepAI" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-slate-900 hover:text-blue-600 transition-colors flex items-center gap-2 group">
+                  <svg class="w-4 h-4 text-blue-600 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+                  <span>Facebook Page ↗</span>
+                </a>
+              </div>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-4 pt-3 border-t border-slate-100" data-i18n="contact.social_sub">Connect with us on LinkedIn & Facebook.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM SECTION -->
+    <section class="py-20 bg-white border-b border-slate-200">
+      <div class="site-container max-w-3xl">
+        
+        <!-- Contact Form Container -->
+        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-12 shadow-md">
+          
+          <form id="neurostep-contact-form" class="space-y-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" data-i18n="contact.form_name">Full Name</label>
+                <input type="text" id="input-name" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-600 focus:outline-none transition-colors text-sm" placeholder="John Doe">
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" data-i18n="contact.form_email">Email Address</label>
+                <input type="email" id="input-email" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-600 focus:outline-none transition-colors text-sm" placeholder="john@organization.com">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" data-i18n="contact.form_org">Organization / Institution</label>
+                <input type="text" id="input-org" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-600 focus:outline-none transition-colors text-sm" placeholder="Clinic / University / Company">
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" data-i18n="contact.form_country">Country</label>
+                <input type="text" id="input-country" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-600 focus:outline-none transition-colors text-sm" placeholder="e.g. South Korea / Sri Lanka / USA">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" data-i18n="contact.form_phone">Phone Number (Optional)</label>
+                <input type="tel" id="input-phone" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-600 focus:outline-none transition-colors text-sm" placeholder="+1 (555) 000-0000">
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" data-i18n="contact.form_interest">Primary Interest Area</label>
+                <select id="input-interest" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-600 focus:outline-none transition-colors text-sm bg-white">
+                  <option value="Individual">Individual</option>
+                  <option value="Healthcare Professional">Healthcare Professional</option>
+                  <option value="Researcher">Researcher</option>
+                  <option value="Hospital / Clinic">Hospital / Clinic</option>
+                  <option value="Investor / Partner">Investor / Partner</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" data-i18n="contact.form_msg">Your Message</label>
+              <textarea id="input-message" rows="5" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-600 focus:outline-none transition-colors text-sm" placeholder="Please describe your pilot inquiry, research goal, or collaboration proposal..."></textarea>
+            </div>
+
+            <button type="submit" class="w-full magnetic-btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg transition-all text-base" data-i18n="contact.form_btn">
+              Submit Request
+            </button>
+
+          </form>
+
+          <!-- Inline Success State -->
+          <div id="contact-success-state" class="hidden text-center py-12">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+              ✓
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2" data-i18n="contact.success_title">
+              Thank You for Contacting NeuroStep AI!
+            </h3>
+            <p class="text-slate-600 text-sm max-w-md mx-auto" data-i18n="contact.success_msg">
+              Your request has been received. Our team will review your inquiry and reach out shortly.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 py-16 border-t border-slate-800">
+    <div class="site-container">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+        
+        <div class="md:col-span-5">
+          <a href="index.html" class="flex items-center gap-3 mb-4">
+            <img src="assets/images/logo.png" alt="NeuroStep AI Official Logo" class="w-9 h-9 rounded-full shadow-md object-cover">
+            <span class="font-bold text-xl text-white">NeuroStep <span class="text-blue-400">AI</span></span>
+          </a>
+          <p class="text-sm text-slate-400 leading-relaxed mb-6" data-i18n="footer.desc">
+            NeuroStep AI - A research-driven wearable mobility startup transforming everyday steps into meaningful gait insight.
+          </p>
+          <div class="flex items-center gap-3">
+            <a href="https://www.linkedin.com/company/neurostep-ai/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800 border border-slate-700 hover:border-blue-500 hover:bg-blue-600/20 text-xs font-bold text-slate-200 hover:text-white transition-all group shadow-sm" aria-label="LinkedIn Page">
+              <svg class="w-4 h-4 fill-current text-blue-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.45 1.45 0 1 0 0 2.9 1.45 1.45 0 0 0 0-2.9Z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://www.facebook.com/NeuroStepAI" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800 border border-slate-700 hover:border-blue-500 hover:bg-blue-600/20 text-xs font-bold text-slate-200 hover:text-white transition-all group shadow-sm" aria-label="Facebook Page">
+              <svg class="w-4 h-4 fill-current text-blue-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+              <span>Facebook</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="md:col-span-3">
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Navigation</h4>
+          <ul class="flex flex-col gap-2 text-sm">
+            <li><a href="index.html" class="hover:text-white transition-colors" data-i18n="nav.home">Home</a></li>
+            <li><a href="product.html" class="hover:text-white transition-colors" data-i18n="nav.product">Product</a></li>
+            <li><a href="solutions.html" class="hover:text-white transition-colors" data-i18n="nav.solutions">Solutions</a></li>
+            <li><a href="research.html" class="hover:text-white transition-colors" data-i18n="nav.research">Research</a></li>
+            <li><a href="about.html" class="hover:text-white transition-colors" data-i18n="nav.about">About</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4">
+          <h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4" data-i18n="footer.disclaimer_title">Scientific & Regulatory Disclaimer</h4>
+          <p class="text-xs leading-relaxed text-slate-400 bg-slate-800/60 p-4 rounded-xl border border-slate-700/60" data-i18n="footer.disclaimer">
+            NeuroStep AI is currently in the active research, development, and testing stage and has not yet been launched as a commercial product. The platform is being developed for gait assessment, mobility monitoring, rehabilitation support, and research applications. Information presented on this website is for research, educational, and product-information purposes only and should not be interpreted as a medical diagnosis. For specific details or pilot inquiries, please contact our team.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <span data-i18n="footer.rights">© 2026 NeuroStep AI. All rights reserved.</span>
+        <div class="flex items-center gap-4">
+          <button class="lang-btn hover:text-white" data-lang="en">EN</button>
+          <span>•</span>
+          <button class="lang-btn hover:text-white" data-lang="ko">한국어</button>
+          <span>•</span>
+          <button class="lang-btn hover:text-white" data-lang="si">සිංහල</button>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+
+</body>
+</html>
