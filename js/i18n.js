@@ -17,7 +17,19 @@ const translations = {
     "hero.sub": "Smart insole technology for personalized gait assessment, mobility monitoring, rehabilitation support, and wearable gait research.",
     "hero.cta_primary": "Request a Demo",
     "hero.cta_secondary": "Join Our Pilot Program",
+    "hero.cta_video": "Watch Video Demo",
     "hero.live_data": "LIVE GAIT METRICS",
+
+    // Video Showcase
+    "video.section": "02 / DEMONSTRATION & TECHNOLOGY",
+    "video.title": "See NeuroStep AI in Action",
+    "video.sub": "Experience how our smart insoles capture, process, and visualize gait kinetics in real-time during physical movement.",
+    "video.feat1_title": "Wearable Sensor Grid",
+    "video.feat1_desc": "High-density pressure mapping matrix embedded in ultra-thin biocompatible insoles.",
+    "video.feat2_title": "100Hz Real-Time Transmission",
+    "video.feat2_desc": "Low-latency wireless signal streaming directly to mobile app & cloud analytics.",
+    "video.feat3_title": "Automated Gait Analytics",
+    "video.feat3_desc": "Quantitative stance, swing, symmetry, and plantar load progression metrics.",
 
     // Marquee
     "marquee.item1": "GAIT TIMING",
@@ -286,7 +298,19 @@ const translations = {
     "hero.sub": "개인 맞춤형 보행 평가, 이동성 모니터링, 재활 지원 및 웨어러블 보행 연구를 위한 스마트 인솔 기술입니다.",
     "hero.cta_primary": "데모 요청",
     "hero.cta_secondary": "파일럿 프로그램 참여",
+    "hero.cta_video": "시연 동영상 보기",
     "hero.live_data": "실시간 보행 지표",
+
+    // Video Showcase
+    "video.section": "02 / 기술 시연 동영상",
+    "video.title": "NeuroStep AI 작동 모습 보기",
+    "video.sub": "스마트 인솔이 보행 역학을 실시간으로 감지, 처리 및 시각화하는 과정을 확인하세요.",
+    "video.feat1_title": "착용형 센서 그리드",
+    "video.feat1_desc": "초박형 생체 적합성 인솔에 내장된 고밀도 압력 매핑 매트릭스.",
+    "video.feat2_title": "100Hz 실시간 신호 전송",
+    "video.feat2_desc": "모바일 앱 및 클라우드 분석 엔진으로의 저지연 무선 전송.",
+    "video.feat3_title": "자동화된 보행 분석",
+    "video.feat3_desc": "입각기, 유각기, 보행 대칭성 및 족저압 이행 지표 정량화.",
 
     // Marquee
     "marquee.item1": "보행 타이밍",
@@ -555,7 +579,19 @@ const translations = {
     "hero.sub": "පුද්ගලීකරණය කළ ඇවිදීමේ රටා තක්සේරුව, චලන නිරීක්ෂණය, පුනරුත්ථාපන සහාය සහ පර්යේෂණ සඳහා වූ ස්මාර්ට් ඉන්සෝල් තාක්ෂණය.",
     "hero.cta_primary": "ඩෙමෝ එකක් ඉල්ලන්න",
     "hero.cta_secondary": "පයිලට් වැඩසටහනට එකතු වන්න",
+    "hero.cta_video": "වීඩියෝ නිරූපණය බලන්න",
     "hero.live_data": "සජීවී ඇවිදීමේ මැනුම්",
+
+    // Video Showcase
+    "video.section": "02 / තාක්ෂණික නිරූපණය",
+    "video.title": "NeuroStep AI ක්‍රියාකාරීත්වය නරඹන්න",
+    "video.sub": "අපගේ ස්මාර්ට් ඉන්සෝල් මගින් තත්‍ය කාලීනව ගමන් රටා දත්ත ග්‍රහණය කර ප්‍රස්ථාරගත කරන ආකාරය නරඹන්න.",
+    "video.feat1_title": "පැලඳිය හැකි සංවේදක පද්ධතිය",
+    "video.feat1_desc": "අතිශය සිහින් ඉන්සෝලය තුළ අඩංගු අධි-ඝනත්ව පීඩන සංවේදක පද්ධතිය.",
+    "video.feat2_title": "100Hz සජීවී දත්ත සම්ප්‍රේෂණය",
+    "video.feat2_desc": "ජංගම යෙදුම සහ ක්ලවුඩ් පද්ධතිය වෙත රහිත අඩු ප්‍රමාද පණිවුඩ යැවීම.",
+    "video.feat3_title": "ස්වයංක්‍රීය ඇවිදීමේ විශ්ලේෂණය",
+    "video.feat3_desc": "ඇවිදීමේ කාලසීමා, සමමිතිය සහ යටි පතුල් පීඩන වෙනස්කම් පිළිබඳ නිශ්චිත විශ්ලේෂණ.",
 
     // Marquee
     "marquee.item1": "ඇවිදීමේ කාල පරාමිති (Gait Timing)",

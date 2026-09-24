@@ -161,6 +161,17 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Custom Video Player Styling */
+#neurostep-video-container video {
+  max-height: 520px;
+  object-fit: cover;
+  width: 100%;
+}
+
+#video-progress-fill {
+  box-shadow: 0 0 10px rgba(34, 184, 207, 0.6);
+}
+
 /* Reduced motion accessible query */
 @media (prefers-reduced-motion: reduce) {
   *,
